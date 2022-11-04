@@ -1,6 +1,5 @@
 @tag
-Feature: Cliente faz saque de dinheiro Como um cliente, eu gostaria de sacar dinheiro em caixa eletrônico, 
-para que eu não tenha que esperar numa fila de banco.
+Feature: Cliente faz saque de dinheiro Como um cliente, eu gostaria de sacar dinheiro em caixa eletrônico, para que eu não tenha que esperar numa fila de banco.
 
   @tag1
   Scenario: Cliente especial com saldo negativo
