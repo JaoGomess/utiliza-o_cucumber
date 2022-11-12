@@ -9,11 +9,9 @@ public class Conta {
 	private Integer tenario;
 	
 	/**
+	 * Método responsável pela inserção de estado do cliente.
 	 * @author João Gomes
-	 * @method setClienteEspecial()
-	 * @description Represeta o valor se o cliente é especial ou não.
-	 * @param value (boolean)
-	 * 
+	 * @param value Boolean
 	 */
 
 	public void setClienteEspecial(boolean value) {
@@ -22,9 +20,7 @@ public class Conta {
 	
 	/**
 	 * @author João Gomes
-	 * @method getClienteEspecial()
-	 * @description Metodo usado para mostrar se o cliente é especial ou não.  
-	 * 
+	 * @return Boolean - Informa-se o cliente é especial ou não.
 	 */
 
 	public boolean getClienteEspecial() {
@@ -32,11 +28,10 @@ public class Conta {
 	}
 	
 	/**
+	 * Método responsável pela atualização do saldo da conta do cliente. 
 	 * @author João Gomes
-	 * @method atualizarSaldoAtual()
-	 * @description Metodo usado para atualizar o saldo da conta do cliente, sendo ele especial ou nao.  
-	 * @params valorDoSaque (float) e tipoCliente (boolean)
-	 * 
+	 * @param valorDoSaque Float
+	 * @param tipoCliente Boolean
 	 */
 
 	public void atualizarSaldoAtual(float valorDoSaque, boolean tipoCliente) {
@@ -47,26 +42,24 @@ public class Conta {
 	}
 	
 	/**
+	 * Método responsável pela inserção do saldo inicial da conta do cliente.
 	 * @author João Gomes
-	 * @method setSaldoAtual()
-	 * @description Metodo usado para inserir o saldo inicial da conta do cliente, sendo ele especial ou nao.  
-	 * @params value (float) e tipoCliente (boolean)
-	 * 
+	 * @param saldo Float
+	 * @param tipoCliente Boolean
 	 */
 
-	public void setSaldoAtual(float value, boolean tipoCliente) {
+	public void setSaldoAtual(float saldo, boolean tipoCliente) {
 		if (tipoCliente)
-			this.saldoAtualEspecial = value;
+			this.saldoAtualEspecial = saldo;
 		else
-			this.saldoAtualComum = value;
+			this.saldoAtualComum = saldo;
 	}
 	
 	/**
+	 * Método responsável para puxar o saldo da conta do cliente. 
 	 * @author João Gomes
-	 * @method getSaldoAtual()
-	 * @description Metodo usado para verificar o saldo da conta do cliente, sendo ele especial ou nao.  
-	 * @params tipoCliente (boolean)
-	 * 
+	 * @param tipoCliente Boolean
+	 * @return Float - Informa-se o saldo atual do cliente Especial ou Comum.
 	 */
 
 	public float getSaldoAtual(boolean tipoCliente) {
@@ -76,17 +69,15 @@ public class Conta {
 	}
 	
 	/**
+	 * Método utilizado apenas caso o Cliente seja Especial. Caso ele seja especial verifica-se se tem um valor
+	 * sendo passado, caso nao tenha o valor por padrão é -200.
 	 * @author João Gomes
-	 * @method um_cliente_especial_com_saldo_atual_de_reais()
-	 * @description Esse metodo é usado caso o cliente seja especial, logo verifica-se se tem um valor
-	 * sendo passado nele, caso nao tenha o valor por padrão é -200.
-	 * @params int1 (Integer)
-	 * 
+	 * @param value Integer
 	 */
 
 	@Given("um cliente especial com saldo atual de {int} reais")
-	public void um_cliente_especial_com_saldo_atual_de_reais(Integer int1) {
-		tenario  = (int1 > 0) ? int1 : -200;
+	public void um_cliente_especial_com_saldo_atual_de_reais(Integer value) {
+		tenario  = (value > 0) ? value : -200;
 		if (this.getClienteEspecial())
 			this.setSaldoAtual(tenario, this.clienteEspecial);
 		else
@@ -94,17 +85,15 @@ public class Conta {
 	}
 
 	/**
+	 * Método utilizado apenas caso o Cliente seja Especial. Caso ele seja especial verifica-se se tem um valor
+	 * sendo passado, caso nao tenha o valor por padrão é 100.
 	 * @author João Gomes
-	 * @method for_solicitado_um_saque_no_valor_de_reais()
-	 * @description Esse metodo é usado caso o cliente seja especial, logo verifica-se se tem um valor
-	 * sendo passado nele, caso nao tenha o valor por padrão é 100.
-	 * @params int1 (Integer)
-	 * 
+	 * @param value Integer
 	 */
 
 	@When("for solicitado um saque no valor de {int} reais")
-	public void for_solicitado_um_saque_no_valor_de_reais(Integer int1) {
-		tenario = (int1 > 0) ? int1 : 100;
+	public void for_solicitado_um_saque_no_valor_de_reais(Integer value) {
+		tenario = (value > 0) ? value : 100;
 		if (this.getClienteEspecial())
 			this.atualizarSaldoAtual(tenario, clienteEspecial);
 		else
@@ -113,17 +102,15 @@ public class Conta {
 	}
 
 	/**
+	 * Método utilizado apenas caso o Cliente seja Especial. Caso ele seja especial verifica-se se tem um valor
+	 * sendo passado, caso nao tenha o valor por padrão é -300.
 	 * @author João Gomes
-	 * @method deve_efetuar_o_saque_e_atualizar_o_saldo_da_conta_para_reais()
-	 * @description Esse metodo é usado caso o cliente seja especial, logo verifica-se se tem um valor
-	 * sendo passado nele, caso nao tenha o valor por padrão é -300.
-	 * @params int1 (Integer)
-	 * 
+	 * @param value Integer
 	 */
 	
 	@Then("deve efetuar o saque e atualizar o saldo da conta para {int} reais")
-	public void deve_efetuar_o_saque_e_atualizar_o_saldo_da_conta_para_reais(Integer int1) {
-		tenario = (int1 > 0 || int1 < 0) ? int1 : -300;
+	public void deve_efetuar_o_saque_e_atualizar_o_saldo_da_conta_para_reais(Integer value) {
+		tenario = (value > 0 || value < 0) ? value : -300;
 		
 		if (this.getClienteEspecial()) {
 			if (this.getSaldoAtual(this.getClienteEspecial()) <= tenario) { 
@@ -135,17 +122,15 @@ public class Conta {
 	}
 
 	/**
+	 * Método utilizado apenas caso o Cliente seja Comum. Caso ele seja comum verifica-se se tem um valor
+	 * sendo passado, caso nao tenha o valor por padrão é -300.
 	 * @author João Gomes
-	 * @method um_cliente_comum_com_saldo_atual_de_reais()
-	 * @description Esse metodo é usado caso o cliente seja comum, logo verifica-se se tem um valor
-	 * sendo passado nele, caso nao tenha o valor por padrão é -300.
-	 * @params int1 (Integer)
-	 * 
+	 * @param value Integer
 	 */
 
 	@Given("um cliente comum com saldo atual de {int} reais")
-	public void um_cliente_comum_com_saldo_atual_de_reais(Integer int1) {
-		tenario  = (int1 > 0) ? int1 : -300;
+	public void um_cliente_comum_com_saldo_atual_de_reais(Integer value) {
+		tenario  = (value > 0) ? value : -300;
 		if (!this.getClienteEspecial())
 			this.atualizarSaldoAtual(tenario, this.clienteEspecial);
 		else
@@ -153,17 +138,15 @@ public class Conta {
 	}
 
 	/**
+	 * Método utilizado apenas caso o Cliente seja Comum. Caso ele seja comum verifica-se se tem um valor
+	 * sendo passado, caso nao tenha o valor por padrão é 200.
 	 * @author João Gomes
-	 * @method solicitar_um_saque_de_reais()
-	 * @description Esse metodo é usado caso o cliente seja comum, logo verifica-se se tem um valor
-	 * sendo passado nele, caso nao tenha o valor por padrão é 200.
-	 * @params int1 (Integer)
-	 * 
+	 * @param value Integer
 	 */
 
 	@When("solicitar um saque de {int} reais")
-	public void solicitar_um_saque_de_reais(Integer int1) {
-		tenario = (int1 > 0) ? int1 : 200;
+	public void solicitar_um_saque_de_reais(Integer value) {
+		tenario = (value > 0) ? value : 200;
 		if (!this.getClienteEspecial())
 			this.atualizarSaldoAtual(tenario, clienteEspecial);
 		else
@@ -171,11 +154,8 @@ public class Conta {
 	}
 
 	/**
+	 * Método utilizado apenas caso o Cliente seja Comum.
 	 * @author João Gomes
-	 * @method não_deve_efetuar_o_saque_e_deve_retornar_a_mensagem_saldo_insuficiente()
-	 * @description Esse metodo é usado caso o cliente seja comum e que o saldo dele seja menor que 0, caso seja,
-	 * informa-se que o saldo é insulficiente e mostra o saldo do cliente.
-	 * 
 	 */
 
 	@Then("não deve efetuar o saque e deve retornar a mensagem Saldo Insuficiente")
@@ -184,7 +164,5 @@ public class Conta {
 			System.out.println("Saldo Insulficiente \n Seu saldo: " + this.getSaldoAtual(this.getClienteEspecial()));
 			throw new io.cucumber.java.PendingException();
 		}
-		
-
 	}
 }
