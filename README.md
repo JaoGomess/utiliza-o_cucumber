@@ -18,8 +18,10 @@ Exercício desenvolvido na linaguagem Java junto com o o framework Cucumber e Ju
 # Capturas do teste usando o Junit
 
 ## Cliente Especial
+![image](https://user-images.githubusercontent.com/38986134/202322333-4d089661-40c6-461d-b170-1a6166407d28.png)
 
 ## Cliente Comum
+![image](https://user-images.githubusercontent.com/38986134/202322408-6a245233-4116-4e87-aaa2-4d7e34d27d67.png)
 
 ## última Atualização
 > 16/11/2022
