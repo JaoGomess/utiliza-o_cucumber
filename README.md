@@ -38,6 +38,7 @@ Exercício desenvolvido na linaguagem Java junto com o o framework Cucumber e Ju
 [referencia](https://cucumber.io/docs/cucumber/api/?lang=java)
 
 # Especificação do strict:
+> se você quiser verificar apenas algumas etapas do arquivo de recurso e as outras falhem, basta ativar o `strict = true`
 
 ## última Atualização
 > 16/11/2022
