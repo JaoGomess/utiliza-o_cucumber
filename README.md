@@ -23,5 +23,17 @@ Exercício desenvolvido na linaguagem Java junto com o o framework Cucumber e Ju
 ## Cliente Comum
 ![image](https://user-images.githubusercontent.com/38986134/202322408-6a245233-4116-4e87-aaa2-4d7e34d27d67.png)
 
+# Opções da classe Runner Junit
+```java
+@CucumberOptions(
+  plugin = "pretty", 
+  monochrome = true, 
+  snippets = SnippetType.CAMELCASE, 
+  dryRun = false, 
+  strict = true)
+```
+
+# Especificação do dryRun:
+
 ## última Atualização
 > 16/11/2022
