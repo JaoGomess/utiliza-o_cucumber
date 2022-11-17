@@ -34,6 +34,9 @@ Exercício desenvolvido na linaguagem Java junto com o o framework Cucumber e Ju
 ```
 
 # Especificação do dryRun:
+> Se você quiser verificar se todas as etapas do arquivo de recurso têm definições, você pode precisa ativar o `dryRun = true`
+
+# Especificação do strict:
 
 ## última Atualização
 > 16/11/2022
